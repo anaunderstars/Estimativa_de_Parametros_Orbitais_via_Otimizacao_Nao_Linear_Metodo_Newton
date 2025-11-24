@@ -41,16 +41,3 @@ print("Parâmetros otimizados: ", theta_opt_rounded)
 print("Função objetivo inicial: ", round(J_inicial, 5))
 print("Função objetivo final: ", round(J_final, 5))
 print("Melhoria na função objetivo: ", round(melhoria, 2), "%")
-
-
-
-
-
-
-
-
-
-
-
-
-
