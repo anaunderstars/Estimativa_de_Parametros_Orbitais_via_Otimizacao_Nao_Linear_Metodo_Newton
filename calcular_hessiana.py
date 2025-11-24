@@ -17,4 +17,3 @@ def calcular_hessiana(theta,t_obs,r_obs,mu,h=1e-8):
             H[i][j] = (grad_perturbed[i] - grad0[i]) / h
 
     return H
-
