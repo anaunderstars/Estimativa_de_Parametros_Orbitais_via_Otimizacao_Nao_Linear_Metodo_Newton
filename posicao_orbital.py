@@ -29,4 +29,3 @@ def posicao_orbital(t, theta, mu):
     Z = (sin_omega * sin_i) * x + (cos_omega * sin_i) * y
 
     return [X, Y, Z]
-
