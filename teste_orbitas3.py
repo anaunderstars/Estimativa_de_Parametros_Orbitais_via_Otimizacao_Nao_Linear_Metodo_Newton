@@ -23,7 +23,7 @@ theta_opt_ruidoso = newton_projetado(
     t_obs_circular,
     r_obs_ruidoso,
     mu,
-    max_iter=1000,
+    max_iter=500,
     c=1e-4
 )
 
@@ -41,6 +41,7 @@ print("Parâmetros otimizados: ", theta_opt_rounded)
 print("Função objetivo inicial: ", round(J_inicial, 5))
 print("Função objetivo final: ", round(J_final, 5))
 print("Melhoria na função objetivo: ", round(melhoria, 2), "%")
+
 
 
 
