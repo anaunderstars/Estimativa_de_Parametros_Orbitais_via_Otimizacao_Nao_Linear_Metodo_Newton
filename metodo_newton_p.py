@@ -83,4 +83,3 @@ def resolver_sistema(H, b):
     H = np.array(H, dtype=float)
     b = np.array(b, dtype=float)
     return list(np.linalg.solve(H, b))
-
