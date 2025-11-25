@@ -7,39 +7,29 @@ from calcular_hessiana import calcular_hessiana
 def newton_projetado(theta_init, t_obs, r_obs, mu,
                      alpha_init=1.0, beta=0.5, c=1e-4,
                      max_iter=500, tol=1e-6):
-
     theta = theta_init.copy()
     k = 0  # contador de iteracoes
-
     for iteration in range(max_iter):
-
         # Etapa 1
         J = funcao_objetivo(theta, t_obs, r_obs, mu)
         grad = calcular_gradiente(theta, t_obs, r_obs, mu)
         H = calcular_hessiana(theta, t_obs, r_obs, mu)
-        
         # Etapa 2
         grad_norm = math.sqrt(sum(g*g for g in grad))
         if grad_norm < tol:
             break
-
         # Etapa 3
         d = resolver_sistema(H, [-g for g in grad])
-
         # Etapa 4
         alpha = busca_armijo(theta, J, grad, d, t_obs, r_obs, mu,
                              alpha_init, beta, c)
-        
         # Etapa 5
         theta_new = [theta[i] + alpha * d[i] for i in range(len(theta))]
-        
         # Etapa 6
         theta_new = projecao_total(theta_new)
-
+      
         theta = theta_new
-
         k += 1
-        
     print("Newton projetado convergiu em", k, "iteracoes")
     return theta
 
@@ -83,3 +73,4 @@ def resolver_sistema(H, b):
     H = np.array(H, dtype=float)
     b = np.array(b, dtype=float)
     return list(np.linalg.solve(H, b))
+
